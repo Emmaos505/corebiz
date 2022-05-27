@@ -52,7 +52,7 @@ export const DataContextProvider = ({ children }) => {
             };
             axios.post(apiNewsletter, body)
                 .then(resp => {
-                    if (resp.status === 200) {
+                    if (resp.statusText === 'OK') {
                         setUserData({ userName: null, userEmail: null });
                         setError({ success: true, error: false, message: 'Formulario enviado correctamente' })
                     }
