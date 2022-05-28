@@ -5,7 +5,16 @@ export default {
     background-color: #F2F2F2;
     width: 100%;
     height: auto;
-    padding: 16px 0px 38px 0px;
+    padding: 16px 15px 38px 15px;
+
+    @media screen and (max-width: 1024px) {
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    flex-direction: column;
+    }
+
     `,
     Title: styled.h2`
     font-family: 'Lato', sans-serif;;
@@ -21,6 +30,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        padding: 0px 20px;
+    width: 100%;
+    }
+
 `,
 
     Input: styled.input`
@@ -34,6 +50,12 @@ export default {
     text-align: left;
     height: 48px;
     margin-right: 8px;
+
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+        margin-right: 0px;
+    margin-bottom: 10px;
+    }
 
     &:active,
     &:focus {
@@ -53,6 +75,9 @@ export default {
     padding: 0px 15px;
     width: 140px;
     cursor: pointer;
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+            }
     `,
     MessageSuccess: styled.div`
     min-height: 30px;

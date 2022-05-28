@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
+import useDevices from '../../../../hooks/useDevices';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -8,18 +9,25 @@ import ProductCard from "../ProductCard";
 import "./slider.css";
 
 const Slider = ({ products }) => {
+
+    const device = useDevices();
+    const { width } = device;
+    const isPhone = width < 800;
+
+
     return (
         <>
             <Swiper
-                slidesPerView={4}
+                slidesPerView={isPhone ? 2 : 4}
                 spaceBetween={20}
-                slidesPerGroup={4}
+                slidesPerGroup={isPhone ? 2 : 4}
                 loop={true}
                 loopFillGroupWithBlank={true}
-                pagination={{
+                navigation={isPhone ? false : true}
+                pagination={isPhone ? {
                     clickable: true,
-                }}
-                navigation={true}
+                    dynamicBullets: true,
+                } : false}
                 modules={[Pagination, Navigation]}
                 className="sliderProducts"
             >
